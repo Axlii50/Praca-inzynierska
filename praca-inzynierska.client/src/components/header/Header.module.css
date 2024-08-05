@@ -1,0 +1,10 @@
+.header {
+  margin-bottom: 5rem;
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 500;
+  color: var(--color-stone-800);
+}

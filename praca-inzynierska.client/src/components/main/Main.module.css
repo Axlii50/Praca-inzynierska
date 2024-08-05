@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 6rem;
+
+  padding: 1rem;
+}
+
+.images {
+  display: flex;
+  gap: 5rem;
+}
