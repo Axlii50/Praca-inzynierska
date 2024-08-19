@@ -1,4 +1,7 @@
 
+using Praca_inzynierska.Server.Interfaces;
+using Praca_inzynierska.Server.Services;
+
 namespace Praca_inzynierska.Server
 {
     public class Program
@@ -8,6 +11,8 @@ namespace Praca_inzynierska.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<IImageProcessor, ImageProcessor>();
+            builder.Services.AddSingleton<INaturalLanguageProcessor, NaturalLanguageProcessor>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
