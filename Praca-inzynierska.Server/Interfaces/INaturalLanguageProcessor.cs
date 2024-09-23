@@ -2,7 +2,6 @@
 {
     public interface INaturalLanguageProcessor
     {
-        List<string> ExtractKeywords(string text);
-        List<DetectedObject> DetectObjects(byte[] imageData, List<string> keywords);
+        string ExtractKeywords(string text);
     }
 }
