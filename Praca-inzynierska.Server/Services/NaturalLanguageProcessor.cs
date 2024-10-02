@@ -18,14 +18,12 @@ namespace Praca_inzynierska.Server.Services
             _mlContext = new MLContext();
 
             var model = _mlContext.Model.Load("Model.zip", out var inputSchema);
-            var _predictionEngine = _mlContext.Model.CreatePredictionEngine<TextData, TextPrediction>(model);
+            _predictionEngine = _mlContext.Model.CreatePredictionEngine<TextData, TextPrediction>(model);
         }
 
         public string ExtractKeywords(string text)
         {
             var prediction = _predictionEngine.Predict(new TextData { Text = text });
-
-            Debug.WriteLine(prediction.Label);
 
             return prediction.Label;
         }
