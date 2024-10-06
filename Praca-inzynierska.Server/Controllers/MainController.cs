@@ -30,14 +30,17 @@ namespace Praca_inzynierska.Server.Controllers
             var imageData = ms.ToArray();
 
             //// Detekcja obiektów
-            //var detectedObjects = _nlpProcessor.DetectObjects(imageData, keywords);
+            var detectedObjects = _imageProcessor.DetectObjectsFromByteArray(imageData, keyword);
+
+            //if there is no detected object return oryginal image
+            if(detectedObjects.Count() == 0) return File(imageData, "image/jpeg");
 
             //// Zaznaczenie obiektów na obrazie
-            //var processedImageData = _imageProcessor.MarkObjects(imageData, detectedObjects);
+            var processedImageData = _imageProcessor.MarkObjects(imageData, detectedObjects.ToList());
 
             // Zwracanie przetworzonego obrazu
-            //return File(processedImageData, "image/jpeg");
-            return Ok();
+            return File(processedImageData, "image/jpeg");
+            //return Ok();
         }
     }
 }
