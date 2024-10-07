@@ -5,7 +5,7 @@
 
   flex-direction: column;
 
-  gap: 6rem;
+  gap: 3rem;
 
   padding: 1rem;
 }
@@ -13,4 +13,8 @@
 .images {
   display: flex;
   gap: 5rem;
+}
+
+.notify {
+    flex: 1;
 }

@@ -1,9 +1,9 @@
 import styles from "./Image.module.css";
 
-function Image({ children, imageSrc, imageAlt }) {
+function Image({ imageSrc, imageAlt, title, setImage }) {
   return (
     <figure className={styles.figure}>
-      <figcaption>{children}</figcaption>
+      <figcaption>{title}</figcaption>
       <img src={imageSrc} alt={imageAlt} />
     </figure>
   );
