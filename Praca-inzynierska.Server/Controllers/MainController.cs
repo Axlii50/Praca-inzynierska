@@ -2,6 +2,7 @@
 using Praca_inzynierska.Server.Interfaces;
 using Praca_inzynierska.Server.Services;
 using System.Diagnostics;
+using System.Text;
 
 namespace Praca_inzynierska.Server.Controllers
 {
@@ -28,12 +29,14 @@ namespace Praca_inzynierska.Server.Controllers
             using var ms = new MemoryStream();
             await request.File.CopyToAsync(ms);
             var imageData = ms.ToArray();
+            string encoded = Convert.ToBase64String(imageData);
+            byte[] imageDataEncoded = Encoding.ASCII.GetBytes(encoded);
 
             //// Detekcja obiektów
-            var detectedObjects = _imageProcessor.DetectObjectsFromByteArray(imageData, keyword);
+            var detectedObjects = await _imageProcessor.DetectObjectsFromByteArray(imageDataEncoded, keyword);
 
             //if there is no detected object return oryginal image
-            if(detectedObjects.Count() == 0) return File(imageData, "image/jpeg");
+            if(detectedObjects != null && detectedObjects.Count() == 0) return File(imageData, "image/jpeg");
 
             //// Zaznaczenie obiektów na obrazie
             var processedImageData = _imageProcessor.MarkObjects(imageData, detectedObjects.ToList());

@@ -1,5 +1,4 @@
-﻿using Emgu.CV.Ocl;
-using Microsoft.AspNetCore.Components.Forms;
+﻿using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.ML;
 using Praca_inzynierska.Server.Interfaces;
 using Praca_inzynierska.Server.Models.NLP;
