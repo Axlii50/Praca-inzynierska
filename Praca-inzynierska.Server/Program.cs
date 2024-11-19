@@ -34,6 +34,7 @@ namespace Praca_inzynierska.Server
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
 
             app.MapControllers();
