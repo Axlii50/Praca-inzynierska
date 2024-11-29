@@ -7,7 +7,6 @@ function Main() {
     const [query, setQuery] = useState("");
     const [imageBeforeURL, setImageBeforeURL] = useState(null);
     const [imageBefore, setImageBefore] = useState(null)
-
     const [imageAfterURL, setImageAfterURL] = useState(null);
 
     function onImageBeforeChange(e) {
@@ -23,12 +22,16 @@ function Main() {
 
         async function requestProcessImage() {
             try {
+                const formData = new FormData();
+                formData.append("text", query);
+                formData.append("file", imageBefore)
+
                 const res = await fetch("Main/process", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ text: query, File: imageBefore }),
+                    body: formData,
                 });
                 const data = await res.json();
                 console.log(data)
