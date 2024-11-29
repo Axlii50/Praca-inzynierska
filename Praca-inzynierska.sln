@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praca-inzynierska.Server", "Praca-inzynierska.Server\Praca-inzynierska.Server.csproj", "{F8183EED-2A78-42A9-84CE-29BE0F0AFE6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Praca-inzynierska.Server", "Praca-inzynierska.Server\Praca-inzynierska.Server.csproj", "{F8183EED-2A78-42A9-84CE-29BE0F0AFE6A}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "praca-inzynierska.client", "praca-inzynierska.client\praca-inzynierska.client.esproj", "{2EAA8102-4480-4A2E-8276-C04820C156B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectDetectionLearning", "ObjectDetectionLearning\ObjectDetectionLearning.csproj", "{A26C81E6-BA3C-4B4E-8F28-D5518E724485}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLP", "NLP\NLP.csproj", "{36C383A9-0F82-4889-95BC-E273264816A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{FAF4F854-A91E-4777-B906-DEB1F8DDF07D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,18 @@ Global
 		{2EAA8102-4480-4A2E-8276-C04820C156B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EAA8102-4480-4A2E-8276-C04820C156B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2EAA8102-4480-4A2E-8276-C04820C156B5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A26C81E6-BA3C-4B4E-8F28-D5518E724485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A26C81E6-BA3C-4B4E-8F28-D5518E724485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A26C81E6-BA3C-4B4E-8F28-D5518E724485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A26C81E6-BA3C-4B4E-8F28-D5518E724485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36C383A9-0F82-4889-95BC-E273264816A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36C383A9-0F82-4889-95BC-E273264816A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36C383A9-0F82-4889-95BC-E273264816A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36C383A9-0F82-4889-95BC-E273264816A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF4F854-A91E-4777-B906-DEB1F8DDF07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF4F854-A91E-4777-B906-DEB1F8DDF07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF4F854-A91E-4777-B906-DEB1F8DDF07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF4F854-A91E-4777-B906-DEB1F8DDF07D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
