@@ -4,55 +4,75 @@ import Prompt from "../prompt/Prompt";
 import styles from "./Main.module.css";
 
 function Main() {
-    const [query, setQuery] = useState("");
-    const [imageBeforeURL, setImageBeforeURL] = useState(null);
-    const [imageBefore, setImageBefore] = useState(null)
-    const [imageAfterURL, setImageAfterURL] = useState(null);
+  const [query, setQuery] = useState("");
+  const [imageBeforeURL, setImageBeforeURL] = useState(null);
+  const [imageBefore, setImageBefore] = useState(null);
+  const [imageAfterURL, setImageAfterURL] = useState(null);
 
-    function onImageBeforeChange(e) {
-        if (e.target.files && e.target.files[0]) {
-            setImageBeforeURL(URL.createObjectURL(e.target.files[0]));
-            setImageBefore(e.target.files[0]);
-        }
-    } 
-
-    function onSubmit(e) {
-        e.preventDefault();
-        if (query.length <= 0 || !imageBefore) return;
-
-        async function requestProcessImage() {
-            try {
-                const formData = new FormData();
-                formData.append("text", query);
-                formData.append("File", imageBefore)
-
-                const res = await fetch("/Main/ProcessImage", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: formData,
-                });
-                const data = await res.json();
-                setImageAfterURL(URL.createObjectURL(data))
-            } catch (err) {
-                console.log(err)
-            }
-        }
-        requestProcessImage();
+  function onImageBeforeChange(e) {
+    if (e.target.files && e.target.files[0]) {
+      setImageBeforeURL(URL.createObjectURL(e.target.files[0]));
+      setImageBefore(e.target.files[0]);
     }
+  }
+
+  function onSubmit(e) {
+    e.preventDefault();
+    if (query.length <= 0 || !imageBefore) return;
+
+    async function requestProcessImage() {
+      try {
+        const formData = new FormData();
+        formData.append("text", query);
+        formData.append("File", imageBefore);
+
+        const res = await fetch("/api/Main/process", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+
+        const data = await res.blob();
+        setImageAfterURL(URL.createObjectURL(data));
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    requestProcessImage();
+  }
 
   return (
-      <main className={styles.main}>
-          <Prompt query={query} setQuery={setQuery} onChange={onImageBeforeChange} onSubmit={onSubmit} />
+    <main className={styles.main}>
+      <Prompt
+        query={query}
+        setQuery={setQuery}
+        onChange={onImageBeforeChange}
+        onSubmit={onSubmit}
+      />
 
-          <div className={styles.images}>
-              {imageBefore && <>
-                  <Image title="Image - Before" imageSrc={imageBeforeURL} imageAlt="Image - before" />
-                  {imageAfterURL ? < Image title="Image - After" imageSrc={imageAfterURL} imageAlt="Image - after" /> : <div className={styles.notify}>&nbsp;</div>}
-                  </>
-              }
-           </div>
+      <div className={styles.images}>
+        {imageBefore && (
+          <>
+            <Image
+              title="Image - Before"
+              imageSrc={imageBeforeURL}
+              imageAlt="Image - before"
+            />
+            {imageAfterURL ? (
+              <Image
+                title="Image - After"
+                imageSrc={imageAfterURL}
+                imageAlt="Image - after"
+              />
+            ) : (
+              <div className={styles.notify}>&nbsp;</div>
+            )}
+          </>
+        )}
+      </div>
     </main>
   );
 }
