@@ -60,9 +60,6 @@ namespace Praca_inzynierska.Server.Controllers
                 $"{Guid.NewGuid()}_{Path.GetFileNameWithoutExtension(file.FileName)}.jpg"
             );
 
-            // Otwarcie pliku dla IFormFile
-           
-
             try
             {
                 // Sprawdzenie, czy plik nie jest pusty
