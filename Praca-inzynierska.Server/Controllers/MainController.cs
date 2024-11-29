@@ -90,6 +90,7 @@ namespace Praca_inzynierska.Server.Controllers
                 var jpgFile = new FormFile(fileStream, 0, fileStream.Length,
                     Path.GetFileNameWithoutExtension(tempFileName),
                     Path.GetFileName(tempFileName));
+                fileStream.Dispose();
 
                 return jpgFile;
             }
