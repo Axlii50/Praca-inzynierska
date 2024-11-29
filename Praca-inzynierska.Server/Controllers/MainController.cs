@@ -5,6 +5,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Processing;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 
 namespace Praca_inzynierska.Server.Controllers
@@ -59,6 +60,9 @@ namespace Praca_inzynierska.Server.Controllers
                 $"{Guid.NewGuid()}_{Path.GetFileNameWithoutExtension(file.FileName)}.jpg"
             );
 
+            // Otwarcie pliku dla IFormFile
+           
+
             try
             {
                 // Sprawdzenie, czy plik nie jest pusty
@@ -83,10 +87,7 @@ namespace Praca_inzynierska.Server.Controllers
                         image.Save(tempFileName, new JpegEncoder { Quality = 85 });
                     }
                 }
-
-                // Otwarcie pliku dla IFormFile
                 var fileStream = System.IO.File.OpenRead(tempFileName);
-
                 var jpgFile = new FormFile(fileStream, 0, fileStream.Length,
                     Path.GetFileNameWithoutExtension(tempFileName),
                     Path.GetFileName(tempFileName));
@@ -101,8 +102,8 @@ namespace Praca_inzynierska.Server.Controllers
             }
             finally
             {
-
-                System.IO.File.Delete(tempFileName);
+                //fileStream.Close();
+                //System.IO.File.Delete(tempFileName);
                 // Opcjonalne czyszczenie plików tymczasowych
                 // Dodaj własną logikę usuwania plików tymczasowych
             }
