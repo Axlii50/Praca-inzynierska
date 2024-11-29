@@ -24,9 +24,9 @@ function Main() {
             try {
                 const formData = new FormData();
                 formData.append("text", query);
-                formData.append("file", imageBefore)
+                formData.append("File", imageBefore)
 
-                const res = await fetch("Main/process", {
+                const res = await fetch("/Main/ProcessImage", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -34,7 +34,6 @@ function Main() {
                     body: formData,
                 });
                 const data = await res.json();
-                console.log(data)
                 setImageAfterURL(URL.createObjectURL(data))
             } catch (err) {
                 console.log(err)
@@ -53,7 +52,7 @@ function Main() {
                   {imageAfterURL ? < Image title="Image - After" imageSrc={imageAfterURL} imageAlt="Image - after" /> : <div className={styles.notify}>&nbsp;</div>}
                   </>
               }
-      </div>
+           </div>
     </main>
   );
 }
