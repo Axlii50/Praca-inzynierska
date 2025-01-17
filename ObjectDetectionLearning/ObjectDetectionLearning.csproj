@@ -54,9 +54,4 @@
     <Folder Include="Images\VotObjects\vott-json-export\" />
     <Folder Include="TestImages\" />
   </ItemGroup>
-  <ItemGroup Label="ObjectDetectionModel">
-    <None Include="ObjectDetectionModel.mlnet">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 </Project>
