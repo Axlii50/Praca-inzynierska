@@ -10,14 +10,14 @@ function Prompt({ query, setQuery, onChange, onSubmit }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
         className={styles.insert}
-        placeholder="Insert to modify your image"
+        placeholder="Tutaj wpisz polecenie tekstowe"
       />
       <button className={styles.iconBtn}>
         <IoIosArrowDroprightCircle size={48} />
       </button>
 
        <div className={styles.chooseFileBox}>
-              <label className={styles.label} htmlFor="img">Select your image</label>
+              <label className={styles.label} htmlFor="img">Wybierz obraz</label>
               <input className={styles.input} onChange={onChange} type='file' id="img" accept="image/*" />
       </div>
     </form>

@@ -57,13 +57,13 @@ function Main() {
         {imageBefore && (
           <>
             <Image
-              title="Image - Before"
+              title="Obraz - Przed"
               imageSrc={imageBeforeURL}
               imageAlt="Image - before"
             />
             {imageAfterURL ? (
               <Image
-                title="Image - After"
+                title="Obraz - Po"
                 imageSrc={imageAfterURL}
                 imageAlt="Image - after"
               />
